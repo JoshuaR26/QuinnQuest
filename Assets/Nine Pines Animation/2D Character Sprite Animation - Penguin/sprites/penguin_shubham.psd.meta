@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      penguin_shubham_0: -2141434274934135692
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
