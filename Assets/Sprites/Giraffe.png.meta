@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Giraffe_0: -4295607627919525082
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ZooInterior_0: 1975378914103246464
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

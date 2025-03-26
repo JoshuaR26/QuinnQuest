@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c1cecf0646957184e8428f78f31ebd17
+timeCreated: 1577520197
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 160370
+  packageName: Animated 2D Crocodile
+  packageVersion: 1.0
+  assetPath: Assets/Chroco/Animss/running.anim
+  uploadId: 345629

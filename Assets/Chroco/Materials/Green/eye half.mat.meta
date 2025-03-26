@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: cb9033be618e9b14db2e6c37db0464ae
+timeCreated: 1577505271
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 160370
+  packageName: Animated 2D Crocodile
+  packageVersion: 1.0
+  assetPath: Assets/Chroco/Materials/Green/eye half.mat
+  uploadId: 345629
