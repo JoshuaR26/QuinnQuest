@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 3d3ad0e5dc6b088429d3a86ff02cbb8d
+timeCreated: 1577454973
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 160370
+  packageName: Animated 2D Crocodile
+  packageVersion: 1.0
+  assetPath: Assets/Chroco/Materials/Green/Back leg 1 3.mat
+  uploadId: 345629

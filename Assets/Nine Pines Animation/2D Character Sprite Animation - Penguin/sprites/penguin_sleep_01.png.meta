@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      penguin_sleep_01_0: 5407984080442349348
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

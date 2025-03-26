@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ccc8b343adb04d149aacb4197c7b7dea
+timeCreated: 1577543890
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 160370
+  packageName: Animated 2D Crocodile
+  packageVersion: 1.0
+  assetPath: Assets/Chroco/Parts/Yellow/Materials/Eye lash.mat
+  uploadId: 345629
