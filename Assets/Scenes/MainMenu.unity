@@ -1626,8 +1626,8 @@ MonoBehaviour:
   targetZoom: 10.6
   moveSpeed: 2
   zoomSpeed: 2
-  acceleration: 1.02
-  nextSceneName: SampleScene
+  acceleration: 1.2
+  nextSceneName: Level1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
