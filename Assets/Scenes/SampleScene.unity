@@ -5798,6 +5798,7 @@ MonoBehaviour:
   camSpeed: 0.1
   acceleration: 1.015
   maxDistance: 5.742158
+  Player: {fileID: 1782570028}
 --- !u!1 &626514381
 GameObject:
   m_ObjectHideFlags: 0
