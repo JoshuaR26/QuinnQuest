@@ -5,26 +5,44 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
     public CharacterController2D controller; 
     public Animator animator;
+    public Rigidbody2D rb; // Add this line to reference the Rigidbody2D
 
     public float runSpeed = 40f;
     float horizontalMove = 0f;
     bool jump = false;
     bool slide = false;
 
-    // Update is called once per frame
+    void Awake() {
+        // Get the Rigidbody2D component if not set in Inspector
+        if (rb == null) rb = GetComponent<Rigidbody2D>();
+    }
+
     void Update() {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+
+        float currentSpeed = animator.GetFloat("Speed");
 
         if (Input.GetButtonDown("Jump")) {
             jump = true;
             animator.SetBool("isJumping", true);
         }
 
-        if (Input.GetButtonDown("Slide")) {
+        if (Input.GetKeyDown(KeyCode.LeftShift) && currentSpeed > 0.1f) {
+            if(animator.GetBool("isSliding")){
+                rb.freezeRotation = false;
+            }
             slide = true;
-        } else if (Input.GetButtonUp("Slide")) {
+            animator.SetBool("isSliding", true);
+            // Unfreeze Z rotation while sliding
+            rb.constraints &= ~RigidbodyConstraints2D.FreezeRotation;
+
+        } else if (Input.GetKeyUp(KeyCode.LeftShift) || currentSpeed <= 0.01f) {
             slide = false;
+            animator.SetBool("isSliding", false);
+            // Freeze Z rotation when not sliding
+            rb.freezeRotation = true;
+            rb.constraints |= RigidbodyConstraints2D.FreezeRotation;
         }
     }
     
