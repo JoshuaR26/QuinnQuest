@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth = 5;
+    public int maxHealth = 1;
     public int currentHealth;
 
     public HealthBarScript healthBar;
@@ -13,14 +13,14 @@ public class Health : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
 
     }
-
-    public void TakeDamage(int amount)
-    {
-        currentHealth -= amount;
-
-        // if (currentHealth <= 0)
-        // {
-            // Game ovr
-        // }
+    void Update(){
+        healthBar.SetHealth(currentHealth);
+        if(currentHealth <= 0){
+            Debug.Log("Game Over");
+           //quit game code
+        }
+    }
+    public void TakeDamage(int damage){
+        currentHealth -= damage;
     }
 }
