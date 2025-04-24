@@ -37,15 +37,17 @@ public class PlayerMovement : MonoBehaviour {
         float currentSpeed = animator.GetFloat("Speed");
         bool isGrounded = controller.IsGrounded;
 
-        if (Input.GetButtonDown("Jump") && isGrounded) {
-            jump = true;
-            animator.SetBool("isJumping", true);
-        }
-
-        // Reset isJumping when grounded
         if (isGrounded) {
             animator.SetBool("isJumping", false);
         }
+
+        if (Input.GetButtonDown("Jump") && isGrounded) {
+            jump = true;
+            Debug.Log("Jumping");
+            animator.SetBool("isJumping", true);
+        }
+        // Reset isJumping when grounded
+
 
         // Start sliding on key down
         if ((Input.GetKeyDown(KeyCode.LeftShift) && (currentSpeed>0.01f )) || (isInWater)) {
