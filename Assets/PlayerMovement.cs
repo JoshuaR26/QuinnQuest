@@ -82,7 +82,9 @@ public class PlayerMovement : MonoBehaviour {
             rb.MoveRotation(rb.rotation + tiltAmount);
         }
         // If sliding but on ground and not in water, keep rotation flat
-        if (slide && isGrounded && !isInWater && rb != null) {
+        if (slide && isGrounded && !isInWater && rb != null &&
+            !Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.W) &&
+            !Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.S)) {
             rb.rotation = 0f;
         }
     }
