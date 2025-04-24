@@ -10,26 +10,17 @@ public class Health : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
 
-        if (healthBar != null)
-        {
-            healthBar.SetMaxHealth(maxHealth);
-        }
     }
 
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
 
-        if (healthBar != null)
-        {
-            healthBar.SetHealth(currentHealth);
-        }
-
-        if (currentHealth <= 0)
-        {
-            Debug.Log("U ded");
-            // TGame ovr
-        }
+        // if (currentHealth <= 0)
+        // {
+            // Game ovr
+        // }
     }
 }
