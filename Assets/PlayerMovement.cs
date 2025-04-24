@@ -5,17 +5,29 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
     public CharacterController2D controller; 
     public Animator animator;
-    public Rigidbody2D rb; // Add this line to reference the Rigidbody2D
+    public Rigidbody2D rb;
+    public BoxCollider2D boxCollider; // Reference to the BoxCollider2D
 
     public float runSpeed = 40f;
     public float tiltSpeed = 200f; // Speed of tilting while sliding
     float horizontalMove = 0f;
     bool jump = false;
     bool slide = false;
-    bool isInWater = false; // <-- Move this here to make it a class-level field
+    bool isInWater = false;
+
+    // Store original and sliding collider values
+    Vector2 originalColliderSize;
+    Vector2 originalColliderOffset;
+    public Vector2 slidingColliderSize = new Vector2(1.0f, 0.5f); 
+    public Vector2 slidingColliderOffset = new Vector2(0f, -0.5f); 
 
     void Awake() {
         if (rb == null) rb = GetComponent<Rigidbody2D>();
+        if (boxCollider == null) boxCollider = GetComponent<BoxCollider2D>();
+        if (boxCollider != null) {
+            originalColliderSize = boxCollider.size;
+            originalColliderOffset = boxCollider.offset;
+        }
     }
 
     void Update() {
@@ -25,22 +37,37 @@ public class PlayerMovement : MonoBehaviour {
         float currentSpeed = animator.GetFloat("Speed");
         bool isGrounded = controller.IsGrounded;
 
-        if (Input.GetButtonDown("Jump")) {
+        if (Input.GetButtonDown("Jump") && isGrounded) {
             jump = true;
             animator.SetBool("isJumping", true);
         }
 
+        // Reset isJumping when grounded
+        if (isGrounded) {
+            animator.SetBool("isJumping", false);
+        }
+
         // Start sliding on key down
-        if (Input.GetKeyDown(KeyCode.LeftShift) && currentSpeed > 0.1f) {
+        if ((Input.GetKeyDown(KeyCode.LeftShift) && (currentSpeed>0.01f )) || (isInWater)) {
             slide = true;
             animator.SetBool("isSliding", true);
             animator.SetBool("isJumping", false); // Cancel jump when sliding starts
+            // Change collider for sliding
+            if (boxCollider != null) {
+                boxCollider.size = slidingColliderSize;
+                boxCollider.offset = slidingColliderOffset;
+            }
         }
         // Stop sliding on key up or if speed drops
         if (Input.GetKeyUp(KeyCode.LeftShift) || currentSpeed < 0.01f) {
             slide = false;
             animator.SetBool("isSliding", false);
             if (rb != null) rb.rotation = 0f;
+            // Revert collider to original
+            if (boxCollider != null) {
+                boxCollider.size = originalColliderSize;
+                boxCollider.offset = originalColliderOffset;
+            }
         }
 
         // Allow tilting while sliding and in water or in air (not grounded)
@@ -64,23 +91,28 @@ public class PlayerMovement : MonoBehaviour {
         controller.Move(horizontalMove * Time.fixedDeltaTime, slide, jump);
 
         bool isGrounded = controller.IsGrounded;
+    
         // Apply force in the direction of tilt when sliding and in water or in air
         if (slide && rb != null && (isInWater || !isGrounded)) {
+            // Use tilt direction for air/water sliding
             float tiltRadians = rb.rotation * Mathf.Deg2Rad;
             Vector2 tiltDirection = new Vector2(Mathf.Cos(tiltRadians), Mathf.Sin(tiltRadians));
             float forceMagnitude = isInWater ? 40f : 25f; // Faster sliding in water
             rb.AddForce(tiltDirection * forceMagnitude, ForceMode2D.Force);
         }
-
+    
         // BOOST SPEED WHEN SLIDING ON GROUND (add this block)
         if (slide && isGrounded && !isInWater && rb != null) {
+            // Use facing direction for ground sliding
             float slideBoost = 1.3f; // Adjust as needed
-            rb.velocity = new Vector2(rb.velocity.x * slideBoost, rb.velocity.y);
+            float facing = transform.localScale.x > 0 ? 1f : -1f; // Assumes right is positive scale
+            rb.velocity = new Vector2(facing * Mathf.Abs(rb.velocity.x) * slideBoost, rb.velocity.y);
         }
         // BOOST SPEED WHEN SLIDING IN WATER (add this block)
         if (slide && isInWater && rb != null) {
-            float waterSlideBoost = 1.36f; // Faster boost in water
-            rb.velocity = new Vector2(rb.velocity.x * waterSlideBoost, rb.velocity.y);
+            float waterSlideBoost = 1.3f; // Faster boost in water
+            float facing = transform.localScale.x > 0 ? 1f : -1f;
+            rb.velocity = new Vector2(facing * Mathf.Abs(rb.velocity.x) * waterSlideBoost, rb.velocity.y);
         }
 
         jump = false;

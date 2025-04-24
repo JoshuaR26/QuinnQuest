@@ -4932,7 +4932,7 @@ GameObject:
   - component: {fileID: 321605148}
   m_Layer: 0
   m_Name: Water
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10452,7 +10452,7 @@ GameObject:
   - component: {fileID: 1030493306}
   m_Layer: 0
   m_Name: Water
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17105,7 +17105,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -17249,7 +17249,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1782570030}
   animator: {fileID: 1782570036}
+  rb: {fileID: 0}
   runSpeed: 40
+  tiltSpeed: 200
 --- !u!95 &1782570036
 Animator:
   serializedVersion: 7
