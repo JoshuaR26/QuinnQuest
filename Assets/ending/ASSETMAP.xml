@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetMap xmlns="http://www.smpte-ra.org/schemas/429-9/2007/AM">
+  <Id>urn:uuid:79c4d1e6-090f-4281-805d-6c1aa375a58b</Id>
+  <AnnotationText>Ending</AnnotationText>
+  <Creator>Blackmagic Design DaVinci Resolve 18.6.6.0007</Creator>
+  <VolumeCount>1</VolumeCount>
+  <IssueDate>2025-04-26T03:00:57</IssueDate>
+  <Issuer>Blackmagic Design</Issuer>
+  <AssetList>
+    <Asset>
+      <Id>urn:uuid:fc802d8f-a530-42d3-92c5-0579da43fda8</Id>
+      <ChunkList>
+        <Chunk>
+          <Path>VIDEO_fc802d8f-a530-42d3-92c5-0579da43fda8.mxf</Path>
+          <VolumeIndex>1</VolumeIndex>
+          <Offset>0</Offset>
+          <Length>69505463</Length>
+        </Chunk>
+      </ChunkList>
+    </Asset>
+    <Asset>
+      <Id>urn:uuid:51e147c1-78fb-47e2-82ff-86b23fe87a80</Id>
+      <ChunkList>
+        <Chunk>
+          <Path>AUDIO_51e147c1-78fb-47e2-82ff-86b23fe87a80.mxf</Path>
+          <VolumeIndex>1</VolumeIndex>
+          <Offset>0</Offset>
+          <Length>1034824</Length>
+        </Chunk>
+      </ChunkList>
+    </Asset>
+  </AssetList>
+</AssetMap>
