@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public void RestartGame()
     {
+        Debug.Log("Restart Clicked");
         SceneManager.LoadScene("Level1");
     }
 
