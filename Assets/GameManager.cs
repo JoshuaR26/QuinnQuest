@@ -3,14 +3,18 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
     public void RestartGame()
     {
-        Debug.Log("Restart Clicked");
-        SceneManager.LoadScene("Level1");
+        PlayerMovement player = FindObjectOfType<PlayerMovement>();
+        if (player != null)
+        {
+            player.RestartGame();
+        }
     }
 
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu"); 
+        SceneManager.LoadSceneAsync("MainMenu"); 
     }
 }

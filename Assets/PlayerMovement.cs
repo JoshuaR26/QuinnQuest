@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
     public CharacterController2D controller; 
@@ -173,5 +174,9 @@ public class PlayerMovement : MonoBehaviour {
         if (other.CompareTag("Ladder")) {
             onLadder = false;
         }
+    }
+
+    public void RestartGame(){
+        SceneManager.LoadSceneAsync("Level1");
     }
 }
