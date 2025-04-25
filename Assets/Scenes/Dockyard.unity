@@ -7258,6 +7258,14 @@ PrefabInstance:
       value: End
       objectReference: {fileID: 0}
     - target: {fileID: 5501651802969395498, guid: 5fdee7b67676635479a58581c278d6c6, type: 3}
+      propertyPath: Scene
+      value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501651802969395498, guid: 5fdee7b67676635479a58581c278d6c6, type: 3}
+      propertyPath: autoNext
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501651802969395498, guid: 5fdee7b67676635479a58581c278d6c6, type: 3}
       propertyPath: spriteMask
       value: 
       objectReference: {fileID: 627427920}
