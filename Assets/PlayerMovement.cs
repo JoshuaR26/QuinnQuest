@@ -154,6 +154,12 @@ public class PlayerMovement : MonoBehaviour {
         if (other.CompareTag("Ladder")) {
             onLadder = true;
         }
+        if (other.CompareTag("Fall Zone")) {
+            // Reset player position to (0, 0, 0) or your desired respawn point
+            transform.position = Vector3.zero;
+            rb.velocity = Vector2.zero; // Optional: reset velocity
+            Debug.Log("Player fell into Fall Zone. Position reset.");
+        }
     }
 
     void OnTriggerExit2D(Collider2D other) {
