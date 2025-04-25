@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour {
     bool jump = false;
     bool slide = false;
     bool isInWater = false;
+    bool onLadder = false;
 
     // Store original and sliding collider values
     Vector2 originalColliderSize;
@@ -41,13 +42,34 @@ public class PlayerMovement : MonoBehaviour {
             animator.SetBool("isJumping", false);
         }
 
-        if (Input.GetButtonDown("Jump") && isGrounded) {
+        // Allow jumping off the ladder with reduced jump height
+        if (onLadder && Input.GetButtonDown("Jump")) {
+            onLadder = false;
+            rb.gravityScale = 3f;
+            float ladderJumpForce = 10f; // Reduced jump force for ladder
+            rb.velocity = new Vector2(rb.velocity.x, ladderJumpForce);
+            animator.SetBool("isJumping", true);
+        }
+        else if (Input.GetButtonDown("Jump") && isGrounded) {
             jump = true;
             Debug.Log("Jumping");
             animator.SetBool("isJumping", true);
         }
-        // Reset isJumping when grounded
 
+        // Ladder movement
+        if(onLadder) {
+            rb.gravityScale = 3f;
+            if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) {
+                rb.velocity = new Vector2(rb.velocity.x, 5f); // Adjust speed as needed
+            }
+            else if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
+                rb.velocity = new Vector2(rb.velocity.x, -5f); // Adjust speed as needed
+            }
+            else {
+                rb.velocity = new Vector2(rb.velocity.x, 0f); // Stop moving vertically
+                rb.gravityScale = 0f ;
+            }
+        }
 
         // Start sliding on key down
         if ((Input.GetKeyDown(KeyCode.LeftShift) && (currentSpeed>0.01f )) || (isInWater)) {
@@ -125,14 +147,21 @@ public class PlayerMovement : MonoBehaviour {
 
     // Add these methods at the end of your PlayerMovement class
     void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log("Trigger entered: " + other.gameObject.name);
         if (other.CompareTag("Water")) {
             isInWater = true;
+        }
+        if (other.CompareTag("Ladder")) {
+            onLadder = true;
         }
     }
 
     void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("Water")) {
             isInWater = false;
+        }
+        if (other.CompareTag("Ladder")) {
+            onLadder = false;
         }
     }
 }
