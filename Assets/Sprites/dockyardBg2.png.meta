@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      dockyardBg2_0: -7276965668871190453
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
