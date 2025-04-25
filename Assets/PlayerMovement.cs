@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour {
     public Animator animator;
     public Rigidbody2D rb;
     public BoxCollider2D boxCollider; // Reference to the BoxCollider2D
+    public Health health;
 
     public float runSpeed = 40f;
     public float tiltSpeed = 200f; // Speed of tilting while sliding
@@ -29,6 +30,8 @@ public class PlayerMovement : MonoBehaviour {
             originalColliderSize = boxCollider.size;
             originalColliderOffset = boxCollider.offset;
         }
+        if (health == null)
+            health = GetComponent<Health>();
     }
 
     void Update() {
@@ -155,11 +158,12 @@ public class PlayerMovement : MonoBehaviour {
             onLadder = true;
         }
         if (other.CompareTag("Fall Zone")) {
-            // Reset player position to (0, 0, 0) or your desired respawn point
-            transform.position = Vector3.zero;
-            rb.velocity = Vector2.zero; // Optional: reset velocity
-            Debug.Log("Player fell into Fall Zone. Position reset.");
+            Debug.Log("Player fell into Fall Zone.");
+            if (health != null) {
+                health.TakeDamage(health.currentHealth); 
+            }
         }
+
     }
 
     void OnTriggerExit2D(Collider2D other) {
