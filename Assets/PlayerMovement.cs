@@ -177,6 +177,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public void RestartGame(){
+        Time.timeScale = 1f; // Reset time scale in case it was paused
         SceneManager.LoadSceneAsync("Level1");
     }
 }

@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      titanic_0: -6217490093161143239
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
