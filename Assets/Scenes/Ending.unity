@@ -1085,8 +1085,8 @@ Transform:
   m_GameObject: {fileID: 218226785}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25070328, y: 1.6449957, z: 0}
-  m_LocalScale: {x: 44.7659, y: 26.201601, z: 1.186}
+  m_LocalPosition: {x: 0.25192046, y: 4.8812976, z: 0}
+  m_LocalScale: {x: 54.805855, y: 32.078014, z: 1.4519924}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1456897723}
@@ -5248,8 +5248,8 @@ Transform:
   m_GameObject: {fileID: 627427919}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2, y: -0.3, z: 0}
-  m_LocalScale: {x: 52.314457, y: 52.314457, z: 52.31446}
+  m_LocalPosition: {x: -0, y: -0.4, z: 0}
+  m_LocalScale: {x: 64.04738, y: 64.04738, z: 64.04738}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1456897723}
@@ -7262,8 +7262,20 @@ PrefabInstance:
       value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 5501651802969395498, guid: 5fdee7b67676635479a58581c278d6c6, type: 3}
+      propertyPath: endSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501651802969395498, guid: 5fdee7b67676635479a58581c278d6c6, type: 3}
       propertyPath: autoNext
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501651802969395498, guid: 5fdee7b67676635479a58581c278d6c6, type: 3}
+      propertyPath: endDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501651802969395498, guid: 5fdee7b67676635479a58581c278d6c6, type: 3}
+      propertyPath: filePath
+      value: Assets/Ending_compressed.mp4
       objectReference: {fileID: 0}
     - target: {fileID: 5501651802969395498, guid: 5fdee7b67676635479a58581c278d6c6, type: 3}
       propertyPath: spriteMask
