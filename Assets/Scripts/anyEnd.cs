@@ -16,6 +16,8 @@ public class anyEnd : MonoBehaviour
 
     private bool isEnd = false;
     private VideoPlayer videoPlayer;
+
+    public static bool isVideoPlaying = false;
     private bool shrink = false;
 
     // Added for shrink logic
@@ -48,6 +50,7 @@ public class anyEnd : MonoBehaviour
         }
     }
 
+
     private void OnTriggerEnter2D(Collider2D other)
     {
 
@@ -70,8 +73,10 @@ public class anyEnd : MonoBehaviour
 
         else if (!string.IsNullOrEmpty(filePath) && videoPlayer != null)
         {
+            anyEnd.isVideoPlaying = true;  // <-- Set flag here
             videoPlayer.Play();
         }
+
     }
 
     void Update()
